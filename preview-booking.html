@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Section Preview — Hair by Shannon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #070406;
+      --ink:      #efe6dd;
+      --blush:    #e8c4b8;
+      --wine:     #5a1f30;
+      --burgundy: #3a121d;
+      --gold:     #c9a16a;
+      --gold-soft:#e3c79a;
+      --dust:     #c89b8a;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--blush);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Minimal nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(7,4,6,0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,161,106,0.18);
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      color: var(--blush);
+      text-decoration: none;
+    }
+    .nav-brand span {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(201,161,106,0.7);
+      margin-top: 3px;
+    }
+
+    /* ── Sections above booking (collapsed for demo) ── */
+    .above-fold {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      background: radial-gradient(ellipse 80% 60% at 50% 30%, #3a121d 0%, #120c10 45%, #070406 80%);
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(201,161,106,0.8);
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 0.88;
+      margin-top: 28px;
+    }
+    .hero-title .word-hair  { display: block; font-size: clamp(64px,12vw,180px); color: var(--blush); }
+    .hero-title .word-by    { display: block; font-size: 11px; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(201,161,106,0.8); margin: 12px 0; }
+    .hero-title .word-name  {
+      display: block;
+      font-size: clamp(72px,14vw,220px);
+      font-style: italic;
+      background: linear-gradient(90deg,#8a6a40 0%,#c9a16a 25%,#f3deb0 50%,#c9a16a 75%,#8a6a40 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,161,106,0.6);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .scroll-hint span { display: inline-block; height: 6px; width: 6px; border-radius: 50%; background: rgba(201,161,106,0.7); animation: pulse 2s ease-in-out infinite; }
+
+    /* ── Booking section ── */
+    #book {
+      position: relative;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+    .glow-top {
+      position: absolute;
+      top: 30%; left: 50%;
+      transform: translateX(-50%);
+      height: 70vh; width: 80vh;
+      border-radius: 50%;
+      background: rgba(58,18,29,0.25);
+      filter: blur(160px);
+      pointer-events: none;
+    }
+    .glow-bot {
+      position: absolute;
+      bottom: 0; left: 25%;
+      height: 40vh; width: 40vh;
+      border-radius: 50%;
+      background: rgba(201,161,106,0.1);
+      filter: blur(120px);
+      pointer-events: none;
+    }
+    .book-inner {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .book-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(201,161,106,0.7);
+    }
+    .book-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 0.88;
+      margin-top: 28px;
+      font-size: clamp(52px, 10vw, 130px);
+      color: var(--blush);
+    }
+    .book-heading em {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(90deg,#8a6a40 0%,#c9a16a 25%,#f3deb0 50%,#c9a16a 75%,#8a6a40 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    .book-subtext {
+      margin: 40px auto 0;
+      max-width: 440px;
+      font-size: 15px;
+      color: rgba(232,196,184,0.65);
+      line-height: 1.7;
+    }
+
+    /* ── Calendly embed ── */
+    .calendly-wrap {
+      margin-top: 56px;
+      border: 1px solid rgba(201,161,106,0.2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+    }
+
+    /* ── Secondary links ── */
+    .secondary-links {
+      margin-top: 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(232,196,184,0.45);
+    }
+    .secondary-links a { color: rgba(232,196,184,0.6); text-decoration: none; transition: color 0.3s; }
+    .secondary-links a:hover { color: var(--gold); }
+
+    /* ── Detail row ── */
+    .detail-row {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+      border-top: 1px solid rgba(201,161,106,0.15);
+      padding-top: 40px;
+      text-align: center;
+    }
+    .detail-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,161,106,0.4);
+      color: rgba(201,161,106,0.8);
+      margin: 0 auto 12px;
+    }
+    .detail-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(201,161,106,0.7);
+    }
+    .detail-val {
+      margin-top: 6px;
+      font-size: 13px;
+      color: rgba(232,196,184,0.8);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid rgba(201,161,106,0.15);
+      padding: 60px 40px 32px;
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(40px,8vw,96px);
+      line-height: 1;
+      background: linear-gradient(90deg,#8a6a40 0%,#c9a16a 25%,#f3deb0 50%,#c9a16a 75%,#8a6a40 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    .footer-sub {
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(201,161,106,0.7);
+    }
+    .footer-bottom {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(201,161,106,0.1);
+      padding-top: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(232,196,184,0.4);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: inherit; text-decoration: none; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bar { margin-top: 32px; height: 1px; background: linear-gradient(90deg,transparent,rgba(201,161,106,0.4),transparent); }
+
+    /* ── Animations ── */
+    @keyframes shimmer {
+      0%   { background-position: -200% 0; }
+      100% { background-position:  200% 0; }
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 0.4; }
+      50%      { opacity: 1; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      #book { padding: 100px 16px 60px; }
+      .detail-row { grid-template-columns: 1fr; text-align: left; }
+      .detail-icon { margin: 0 0 8px; }
+      .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#" class="nav-brand">
+      HAIR BY SHANNON
+      <span>Birmingham Atelier</span>
+    </a>
+    <a href="#book" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(201,161,106,0.4);padding:8px 20px;border-radius:999px;">Book</a>
+  </nav>
+
+  <!-- Hero (collapsed — just shows the top of the page for context) -->
+  <div class="above-fold">
+    <p class="hero-eyebrow">Est. Birmingham · By Appointment</p>
+    <h1 class="hero-title">
+      <span class="word-hair">hair</span>
+      <span class="word-by">— by —</span>
+      <span class="word-name">Shannon</span>
+    </h1>
+    <div class="scroll-hint"><span></span> Scroll to booking</div>
+  </div>
+
+  <!-- Booking Section -->
+  <section id="book">
+    <div class="glow-top"></div>
+    <div class="glow-bot"></div>
+
+    <div class="book-inner">
+      <p class="book-eyebrow">✦ Reserve the chair</p>
+
+      <h2 class="book-heading">
+        your turn.<br>
+        <em>— belovèd —</em>
+      </h2>
+
+      <p class="book-subtext">
+        New slots open the first of each month. A small deposit secures
+        your seat. Cancellations made 72 hours prior are refunded in full.
+      </p>
+
+      <!-- Calendly inline widget -->
+      <div class="calendly-wrap">
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/ontheway09/30min?background_color=070406&text_color=e8c4b8&primary_color=c9a16a&hide_gdpr_banner=1"
+        ></div>
+      </div>
+
+      <!-- Secondary links -->
+      <p class="secondary-links">
+        or reach out directly —
+        <a href="https://instagram.com/hair.by.shannnn.x" target="_blank">Instagram</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:hair.by.shannon@gmail.com">Email</a>
+      </p>
+
+      <!-- Detail row -->
+      <div class="detail-row">
+        <div>
+          <div class="detail-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="detail-label">Studio</p>
+          <p class="detail-val">Birmingham, AL · Address upon confirmation</p>
+        </div>
+        <div>
+          <div class="detail-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <p class="detail-label">Instagram</p>
+          <p class="detail-val">@hair.by.shannnn.x</p>
+        </div>
+        <div>
+          <div class="detail-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <p class="detail-label">Hours</p>
+          <p class="detail-val">Tues – Sat · 9am — 8pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-name">hair by Shannon</p>
+    <p class="footer-sub">Birmingham · AL · Est. 2019</p>
+    <div class="footer-bottom">
+      <p>© 2026 Hair by Shannon · All plaits reserved</p>
+      <div class="footer-links">
+        <a href="#book">Book</a>
+        <a href="#">Services</a>
+        <a href="#">↑ Top</a>
+      </div>
+    </div>
+    <div class="footer-bar"></div>
+  </footer>
+
+</body>
+</html>
