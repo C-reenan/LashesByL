@@ -3,12 +3,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Instagram, Mail, MapPin } from "lucide-react";
 import { useRef } from "react";
-import Script from "next/script";
+import { ArrowUpRight } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
-
-const CALENDLY_URL =
-  "https://calendly.com/ontheway09/30min?background_color=070406&text_color=e8c4b8&primary_color=c9a16a&hide_gdpr_banner=1";
 
 export function Booking() {
   const ref = useRef<HTMLElement>(null);
@@ -25,11 +22,6 @@ export function Booking() {
       ref={ref}
       className="relative py-32 sm:py-48 px-5 sm:px-8 overflow-hidden"
     >
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
-      />
-
       {/* Ambient flourish */}
       <motion.div
         style={{ y: glowY }}
@@ -74,46 +66,35 @@ export function Booking() {
           your seat. Cancellations made 72 hours prior are refunded in full.
         </motion.p>
 
-        {/* Calendly inline embed */}
+        {/* Booking CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease, delay: 0.4 }}
-          className="mt-14 sm:mt-20 rounded-[2px] border border-gold/20 overflow-hidden"
+          transition={{ duration: 1.1, ease, delay: 0.4 }}
+          className="mt-12 sm:mt-16 flex flex-col items-center gap-5"
         >
-          <div
-            className="calendly-inline-widget"
-            data-url={CALENDLY_URL}
-            style={{ minWidth: "320px", height: "700px" }}
-          />
-        </motion.div>
-
-        {/* Secondary contact links */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease, delay: 0.6 }}
-          className="mt-8 text-[11px] tracking-luxe uppercase text-rose-blush/45"
-        >
-          or reach out directly —{" "}
           <a
-            href="https://instagram.com/hair.by.shannnn.x"
+            href="https://calendly.com/Ontheway09"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-rose-blush/60 hover:text-gold transition-colors"
+            className="group btn-glow relative inline-flex items-center gap-4 rounded-full bg-rose-burgundy/70 px-10 py-5 sm:px-14 sm:py-6 backdrop-blur-sm transition-colors duration-500 hover:bg-rose-wine"
           >
-            Instagram
+            <span className="text-[11px] sm:text-xs tracking-cinema uppercase text-rose-blush">
+              Book Appointment
+            </span>
+            <span className="relative h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-gold flex items-center justify-center text-ink-950 transition-transform duration-500 group-hover:rotate-45">
+              <ArrowUpRight size={16} strokeWidth={1.8} />
+            </span>
           </a>
-          {" · "}
+
           <a
             href="mailto:hair.by.shannon@gmail.com?subject=Booking%20Enquiry"
-            className="text-rose-blush/60 hover:text-gold transition-colors"
+            className="text-[11px] tracking-luxe uppercase text-rose-blush/60 hover:text-gold transition-colors"
           >
-            Email
+            or write a note →
           </a>
-        </motion.p>
+        </motion.div>
 
         {/* Detail row */}
         <motion.div
