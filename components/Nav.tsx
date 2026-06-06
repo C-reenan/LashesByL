@@ -14,8 +14,8 @@ const LINKS = [
 
 export function Nav() {
   const { scrollY } = useScroll();
-  const bg      = useTransform(scrollY, [0, 120], ["rgba(7,4,6,0)", "rgba(7,4,6,0.78)"]);
-  const border  = useTransform(scrollY, [0, 120], ["rgba(201,161,106,0)", "rgba(201,161,106,0.18)"]);
+  const bg      = useTransform(scrollY, [0, 120], ["rgba(255,255,255,0)", "rgba(255,255,255,0.85)"]);
+  const border  = useTransform(scrollY, [0, 120], ["rgba(124,58,237,0)", "rgba(124,58,237,0.22)"]);
   const blur    = useTransform(scrollY, [0, 120], ["blur(0px)", "blur(14px)"]);
   const [open, setOpen] = useState(false);
 
@@ -28,11 +28,11 @@ export function Nav() {
         <a href="#top" className="group flex items-center gap-3">
           <div className="relative h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-gold/40 flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-gold/10 animate-pulse-glow" />
-            <span className="font-display text-gold text-[15px] sm:text-base">S</span>
+            <span className="font-display text-gold text-[15px] sm:text-base">L</span>
           </div>
           <div className="leading-none">
             <p className="font-display text-[15px] sm:text-base text-rose-blush tracking-[0.16em]">
-              HAIR BY SHANNON
+              LASHES BY L
             </p>
             <p className="text-[9px] sm:text-[10px] mt-1 text-gold/70 tracking-cinema uppercase">
               Birmingham Atelier
@@ -55,7 +55,7 @@ export function Nav() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="https://instagram.com/hair.by.shannnn.x"
+            href="https://instagram.com/lashesby.l"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -90,7 +90,7 @@ export function Nav() {
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-gold/15">
           <span className="font-display text-rose-blush tracking-[0.16em] text-sm">
-            HAIR BY SHANNON
+            LASHES BY L
           </span>
           <button
             aria-label="Close"
@@ -139,13 +139,13 @@ export function Nav() {
             className="pt-6"
           >
             <a
-              href="https://instagram.com/hair.by.shannnn.x"
+              href="https://instagram.com/lashesby.l"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[11px] tracking-luxe uppercase text-gold/80"
             >
               <Instagram size={14} strokeWidth={1.2} />
-              @hair.by.shannnn.x
+              @lashesby.l
             </a>
           </motion.li>
         </motion.ul>

@@ -6,9 +6,8 @@ import { Services }  from "@/components/Services";
 import { Lookbook }  from "@/components/Lookbook";
 import { Process }   from "@/components/Process";
 import { Voices }    from "@/components/Voices";
-import { Booking }   from "@/components/Booking";
 import { Footer }    from "@/components/Footer";
-
+import BookingForm from "@/components/bookingform";
 export default function Page() {
   return (
     <main className="relative bg-ink-950">
@@ -20,8 +19,9 @@ export default function Page() {
       <Lookbook />
       <Process />
       <Voices />
-      <Booking />
+      <BookingForm />
       <Footer />
     </main>
+    
   );
 }

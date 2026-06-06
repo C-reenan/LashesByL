@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --bg: #070406;
-  --ink: #efe6dd;
-  --wine: #5a1f30;
-  --burgundy: #3a121d;
-  --gold: #c9a16a;
-  --rose: #c89b8a;
-  --shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  --bg: #ffffff;
+  --ink: #2e1065;
+  --wine: #6d28d9;
+  --burgundy: #581c87;
+  --gold: #7c3aed;
+  --rose: #a78bfa;
+  --shadow: 0 30px 80px -20px rgba(76, 29, 149, 0.25);
 }
 
 * { -webkit-tap-highlight-color: transparent; }
@@ -23,35 +23,35 @@ html, body {
   font-feature-settings: "ss01", "ss02", "case";
 }
 
-::selection { background: var(--wine); color: #fff; }
+::selection { background: var(--gold); color: #fff; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #0b0709; }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#5a1f30,#c9a16a); border-radius: 999px; }
+::-webkit-scrollbar-track { background: #f3ecfb; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#7c3aed,#a78bfa); border-radius: 999px; }
 
-/* Cinematic film grain layer */
+/* Subtle paper grain layer (much lighter on white theme) */
 .grain::before {
   content: "";
   position: fixed;
   inset: -120%;
   pointer-events: none;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  opacity: 0.18;
-  mix-blend-mode: overlay;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
   z-index: 80;
   animation: grain 8s steps(10) infinite;
 }
 
-/* Gold shimmer text */
+/* Purple shimmer text */
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    #8a6a40 0%,
-    #c9a16a 25%,
-    #f3deb0 50%,
-    #c9a16a 75%,
-    #8a6a40 100%
+    #4c1d95 0%,
+    #7c3aed 25%,
+    #c4b5fd 50%,
+    #7c3aed 75%,
+    #4c1d95 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
@@ -60,7 +60,7 @@ html, body {
   animation: shimmer 6s linear infinite;
 }
 
-/* Subtle vignette */
+/* Soft purple vignette */
 .vignette::after {
   content: "";
   position: absolute;
@@ -69,7 +69,7 @@ html, body {
   background: radial-gradient(
     ellipse at center,
     transparent 40%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(76, 29, 149, 0.12) 100%
   );
 }
 
@@ -91,7 +91,7 @@ html, body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #c9a16a, #5a1f30, #c89b8a);
+  background: linear-gradient(135deg, #7c3aed, #4c1d95, #a78bfa);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;

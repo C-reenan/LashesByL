@@ -2,14 +2,14 @@
 
 export function Marquee() {
   const phrases = [
-    "Knotless Braids",
-    "Boho Curls",
-    "Feed-In Cornrows",
-    "Goddess Locs",
-    "Stitch Braids",
-    "Tribal Plaits",
-    "Bohemian Knotless",
-    "Soft Locs",
+    "Premium Classic Lashes",
+    "Luxury Hybrid Set",
+    "Volume Extensions",
+    "Mega Volume",
+    "Lash Lift & Tint",
+    "Wispy Hybrid",
+    "Russian Volume",
+    "Refill & Maintenance",
   ];
   const full = [...phrases, ...phrases, ...phrases];
 

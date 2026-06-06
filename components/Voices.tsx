@@ -5,30 +5,31 @@ import { Quote, Star } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+// Pulled from real DMs to @lashesby.l — only light punctuation polish.
 const VOICES = [
   {
     quote:
-      "I drove four hours for these braids and would do it again tomorrow. Most comfortable install of my life — and they still look fresh six weeks in.",
-    name: "Aniyah J.",
-    role: "Returning · Knotless",
+      "Hey miss gurl, you don't know me but I've been following you a few months now and I just wanted to tell you how amazing your work is. You can tell the hard work you put in. The hustle is real — keep going ❤️",
+    name: "DM · Feb 2024",
+    role: "Followed for months",
   },
   {
     quote:
-      "She doesn't rush. You feel like the only client in the world. I've never had braids photographed this many times by strangers.",
-    name: "Maya R.",
-    role: "Bridal Trial",
-  },
-  {
-    quote:
-      "Sat for boho knotless and woke up the next morning without a single bump. That's never happened to me. Worth every dollar.",
-    name: "Treasure K.",
+      "They look so good, thank you 😁 I'm definitely coming to you next time.",
+    name: "DM · Sept 2023",
     role: "First Visit",
   },
   {
     quote:
-      "Shannon mapped a part for my hairline that I didn't know was possible. Editorial-level work in a calm, candle-lit room.",
-    name: "Daja M.",
-    role: "Editorial Client",
+      "Girl I am innn looovveee with my lashes 🥰 Thank you xx",
+    name: "DM · Nov 2023",
+    role: "Hybrid Set",
+  },
+  {
+    quote:
+      "Very talented young lady. I used to do lashes myself and dabble in makeup and bridal etc, and at your age your work is absolutely amazing babe — your attention to detail! Absolutely love seeing your videos. Keep smashing it beautiful xxxx",
+    name: "DM · Mar 2024",
+    role: "Fellow Lash Tech",
   },
 ];
 
@@ -73,7 +74,7 @@ export function Voices() {
               <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
             ))}
             <span className="ml-2 font-mono text-[10px] sm:text-xs tracking-luxe text-rose-blush/55 uppercase">
-              4.98 · 312 reviews
+              Straight from the DMs
             </span>
           </motion.div>
         </div>

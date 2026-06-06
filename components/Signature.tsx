@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { PHOTOS } from "@/lib/photos";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -28,16 +29,34 @@ export function Signature() {
           className="md:col-span-5 relative aspect-[3/4] w-full max-w-md mx-auto"
         >
           <div className="absolute inset-0 rounded-[2px] overflow-hidden border border-gold/15">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80')",
-                filter: "saturate(0.85) contrast(1.05)",
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-rose-burgundy/40 via-transparent to-transparent mix-blend-multiply" />
+            {PHOTOS.signature ? (
+              <>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('${PHOTOS.signature}')`,
+                    filter: "saturate(0.85) contrast(1.05)",
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-burgundy/40 via-transparent to-transparent mix-blend-multiply" />
+              </>
+            ) : (
+              // Placeholder — luxe gradient + monogram. Replace via /lib/photos.ts
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,#a78bfa_0%,#7c3aed_55%,#4c1d95_100%)] flex items-center justify-center">
+                <div className="text-center px-6">
+                  <span className="font-mono text-[10px] tracking-cinema uppercase text-gold/60">
+                    Portrait
+                  </span>
+                  <p className="mt-3 font-display italic text-6xl text-rose-blush/30">
+                    L
+                  </p>
+                  <span className="mt-3 block font-mono text-[9px] tracking-luxe uppercase text-rose-blush/30">
+                    awaiting feature
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
           {/* Frame corner ticks */}
           <span className="absolute -top-2 -left-2 h-5 w-5 border-t border-l border-gold/60" />
@@ -69,7 +88,7 @@ export function Signature() {
             <br />
             <span className="italic shimmer-text">Precision.</span>
             <br />
-            <span className="text-rose-dust">Plait.</span>
+            <span className="text-rose-dust">Lash.</span>
           </motion.h2>
 
           <motion.div
@@ -82,10 +101,10 @@ export function Signature() {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 1, ease, delay: 0.25 }}
             >
-              Shannon trained her hands the way a couturier trains for an
-              atelier — slow, deliberate, in love with the work. Each style
-              is custom-mapped to the curve of your scalp and the way you
-              carry your shoulders.
+              L trained her hands the way a couturier trains for an
+              atelier — slow, deliberate, in love with the work. Each set
+              is custom-mapped to the curve of your lash line and the way
+              you carry your gaze.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -110,7 +129,7 @@ export function Signature() {
             className="mt-12 grid grid-cols-3 gap-6 sm:gap-8 max-w-md border-t border-gold/15 pt-8"
           >
             {[
-              { k: "06+",   v: "years of plaiting" },
+              { k: "06+",   v: "years of lashing" },
               { k: "1.2k",  v: "loyal clientele"    },
               { k: "★ 4.98", v: "ig review average" },
             ].map((s) => (

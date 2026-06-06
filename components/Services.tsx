@@ -5,49 +5,49 @@ import { motion } from "framer-motion";
 const SERVICES = [
   {
     n: "01",
-    name: "Knotless Braids",
-    spec: "Small · Medium · Large",
-    hours: "5—8 hrs",
-    price: "from $220",
-    note: "The signature. Featherlight roots, sculpted ends.",
+    name: "Premium Classic Lashes",
+    spec: "Natural · Refined · Weightless",
+    hours: "2—2.5 hrs",
+    price: "from $120",
+    note: "The signature. One extension per lash, mapped with intention.",
   },
   {
     n: "02",
-    name: "Boho Knotless",
-    spec: "Human curls woven through",
-    hours: "6—9 hrs",
-    price: "from $260",
-    note: "Soft, romantic, lived-in. The current favourite.",
+    name: "Luxury Hybrid Set",
+    spec: "Classic & volume blend",
+    hours: "2.5—3 hrs",
+    price: "from $150",
+    note: "Soft texture, quiet drama. The current favourite.",
   },
   {
     n: "03",
-    name: "Feed-In Cornrows",
-    spec: "Straight back · Patterns",
-    hours: "2—4 hrs",
-    price: "from $120",
-    note: "Architectural. Days-long polish without bulk.",
+    name: "Volume Lash Extensions",
+    spec: "Handmade fans · 3D—6D",
+    hours: "3—3.5 hrs",
+    price: "from $180",
+    note: "Architectural fullness. Days-long polish without weight.",
   },
   {
     n: "04",
-    name: "Stitch Braids",
-    spec: "Pattern · Beads · Cuffs",
-    hours: "3—5 hrs",
-    price: "from $160",
-    note: "Editorial detail work. Bring inspiration.",
+    name: "Mega Volume Enhancement",
+    spec: "Ultra-fine fans · 8D—16D",
+    hours: "3.5—4 hrs",
+    price: "from $220",
+    note: "Editorial density. Bring inspiration.",
   },
   {
     n: "05",
-    name: "Goddess Locs",
-    spec: "Short · Mid · Hip length",
-    hours: "6—10 hrs",
-    price: "from $280",
+    name: "Lash Lift & Tint",
+    spec: "Natural lash · Lifted · Tinted",
+    hours: "60—75 min",
+    price: "from $95",
     note: "Wrapped in temperament. Lasts six weeks.",
   },
   {
     n: "06",
     name: "Bespoke Consultation",
     spec: "By request · In-studio",
-    hours: "45 min",
+    hours: "30 min",
     price: "complimentary",
     note: "Bring your vision. Leave with a plan.",
   },
@@ -91,7 +91,7 @@ export function Services() {
             className="max-w-sm text-rose-blush/60 font-light leading-relaxed text-sm"
           >
             Every appointment is private, never double-booked. Times below
-            include the consult; final pricing depends on length & density.
+            include the consult; final pricing depends on style & density.
           </motion.p>
         </div>
 
@@ -150,7 +150,7 @@ export function Services() {
           className="mt-12 text-center"
         >
           <p className="text-[11px] sm:text-xs tracking-luxe uppercase text-rose-blush/55">
-            Hair extensions provided in studio · Deposit secures the chair
+            Premium lash products used in studio · Deposit secures the appointment
           </p>
         </motion.div>
       </div>

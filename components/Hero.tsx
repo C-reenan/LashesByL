@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, MapPin, Instagram } from "lucide-react";
 import { useRef } from "react";
+import { PHOTOS } from "@/lib/photos";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -25,19 +26,25 @@ export function Hero() {
       ref={ref}
       className="relative h-[100svh] min-h-[640px] w-full overflow-hidden vignette"
     >
-      {/* Background: layered gradients + photo wash */}
+      {/* Background: layered gradients (+ optional photo wash) */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_30%,#3a121d_0%,#120c10_45%,#070406_80%)]" />
-        <div
-          className="absolute inset-0 opacity-[0.18] drift mix-blend-screen"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&w=1600&q=80')",
-            backgroundSize: "cover",
-            backgroundPosition: "center 30%",
-            filter: "grayscale(0.4) contrast(1.05) blur(2px)",
-          }}
-        />
+        {PHOTOS.hero && (
+          <div
+            className="absolute inset-0 opacity-[0.18] drift mix-blend-screen"
+            style={{
+              backgroundImage: `url('${PHOTOS.hero}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center 30%",
+              filter: "grayscale(0.4) contrast(1.05) blur(2px)",
+            }}
+          />
+        )}
+        {/* Drifting gold streaks (purely CSS — replaces the photo wash) */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-1/4 left-1/4 h-[40vh] w-[40vh] rounded-full bg-gold/8 blur-[140px] drift" />
+          <div className="absolute bottom-1/3 right-1/4 h-[30vh] w-[30vh] rounded-full bg-rose-burgundy/30 blur-[120px] drift" style={{ animationDelay: "4s" }} />
+        </div>
         {/* Soft gold lamp */}
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[60vh] w-[60vh] rounded-full bg-gold/10 blur-[120px]" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[40vh] w-[120vw] bg-gradient-to-t from-ink-950 via-ink-950/80 to-transparent" />
@@ -77,7 +84,7 @@ export function Hero() {
             transition={{ duration: 1.4, ease, delay: 0.55 }}
             className="block text-[68px] sm:text-[120px] md:text-[160px] lg:text-[200px] text-rose-blush"
           >
-            hair
+            lashes
           </motion.span>
 
           <motion.span
@@ -95,7 +102,7 @@ export function Hero() {
             transition={{ duration: 1.4, ease, delay: 1.0 }}
             className="block mt-2 sm:mt-4 italic text-[78px] sm:text-[140px] md:text-[190px] lg:text-[240px] shimmer-text"
           >
-            Shannon
+            L
           </motion.span>
         </h1>
 
@@ -105,8 +112,8 @@ export function Hero() {
           transition={{ duration: 1.2, ease, delay: 1.3 }}
           className="mt-8 sm:mt-12 max-w-md text-[13px] sm:text-base font-sans font-light leading-relaxed text-rose-blush/70"
         >
-          A private braiding atelier where every plait is composed —
-          knotless, boho, feed-ins. Crafted slow, worn for weeks.
+          A private lash atelier where every set is composed —
+          classic, hybrid, volume. Mapped slow, worn for weeks.
         </motion.p>
 
         <motion.div
@@ -119,7 +126,7 @@ export function Hero() {
             href="#book"
             className="btn-glow relative inline-flex items-center justify-center rounded-full bg-rose-burgundy/60 px-9 py-3.5 text-[11px] tracking-luxe uppercase text-rose-blush hover:bg-rose-wine transition-colors duration-500 backdrop-blur-sm w-full sm:w-auto"
           >
-            Reserve a seat
+            Reserve your set
           </a>
           <a
             href="#lookbook"
@@ -146,13 +153,13 @@ export function Hero() {
             <span>Scroll</span>
           </div>
           <a
-            href="https://instagram.com/hair.by.shannnn.x"
+            href="https://instagram.com/lashesby.l"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:flex items-center gap-2 hover:text-gold transition-colors"
           >
             <Instagram size={12} strokeWidth={1.2} />
-            @hair.by.shannnn.x
+            @lashesby.l
           </a>
         </motion.div>
       </motion.div>

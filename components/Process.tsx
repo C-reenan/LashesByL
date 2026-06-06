@@ -8,22 +8,22 @@ const STEPS = [
   {
     n: "i",
     title: "Reach Out",
-    body: "Send a message via Instagram or the form below. Share your length, density, and inspiration if you have any.",
+    body: "Send a message via Instagram or the form below. Share your style, density, and inspiration if you have any.",
   },
   {
     n: "ii",
     title: "Composition",
-    body: "Shannon designs your install — parting, size, length — and confirms a date with a deposit.",
+    body: "L maps your set — curl, length, density — and confirms a date with a deposit.",
   },
   {
     n: "iii",
     title: "The Chair",
-    body: "Arrive freshly washed. We light the candle, pour the drink, and begin. Most installs take 4–9 hours.",
+    body: "Arrive bare-faced. We light the candle, pour the drink, and begin. Most sets take 2–4 hours.",
   },
   {
     n: "iv",
     title: "Aftercare",
-    body: "Leave with a printed care card and a follow-up message at week three. Style your way for weeks.",
+    body: "Leave with a printed care card and a follow-up message at week two. Wear them for weeks.",
   },
 ];
 

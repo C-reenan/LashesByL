@@ -2,61 +2,69 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { PHOTOS } from "@/lib/photos";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 type Frame = {
-  src: string;
+  src: string | null;
   title: string;
   tag: string;
   span: string;
   parallax: number;
+  /** Gradient angle (deg) — varied per tile so placeholders feel unique  */
+  gradient: number;
 };
 
-// TODO: replace with @hair.by.shannnn.x install photos.
-// Current images are dark, hair-forward placeholders for layout review.
+// Photo sources live in /lib/photos.ts — swap there to use L's real photos.
 const FRAMES: Frame[] = [
   {
-    src: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=900&q=80",
-    title: "Boho · No.07",
-    tag: "Medium · Mid-back",
+    src: PHOTOS.look.boho,
+    title: "Hybrid · No.07",
+    tag: "Soft · Wispy",
     span: "col-span-12 md:col-span-7 md:row-span-2 aspect-[4/5] md:aspect-auto md:h-full",
     parallax: -40,
+    gradient: 135,
   },
   {
-    src: "https://images.unsplash.com/photo-1626954079979-ec4f7b05e032?auto=format&fit=crop&w=700&q=80",
-    title: "Stitched · No.04",
-    tag: "Cornrow · Crown",
+    src: PHOTOS.look.stitched,
+    title: "Lift & Tint · No.04",
+    tag: "Natural · Lifted",
     span: "col-span-6 md:col-span-5 aspect-[4/5]",
     parallax: -20,
+    gradient: 200,
   },
   {
-    src: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=700&q=80",
-    title: "Knotless · No.12",
-    tag: "Small · Waist",
+    src: PHOTOS.look.knotless,
+    title: "Classic · No.12",
+    tag: "Refined · Weightless",
     span: "col-span-6 md:col-span-5 aspect-[4/5]",
     parallax: -60,
+    gradient: 60,
   },
   {
-    src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=80",
-    title: "Goddess · No.02",
-    tag: "Wrapped · Hip",
+    src: PHOTOS.look.goddess,
+    title: "Mega Volume · No.02",
+    tag: "Dense · Editorial",
     span: "col-span-12 md:col-span-7 aspect-[3/4] md:aspect-[16/10]",
     parallax: -30,
+    gradient: 110,
   },
   {
-    src: "https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?auto=format&fit=crop&w=700&q=80",
-    title: "Tribal · No.09",
-    tag: "Cuffs · Beaded",
+    src: PHOTOS.look.tribal,
+    title: "Volume · No.09",
+    tag: "Handmade · Fans",
     span: "col-span-6 md:col-span-5 aspect-[4/5]",
     parallax: -10,
+    gradient: 220,
   },
   {
-    src: "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=700&q=80",
-    title: "Feed-In · No.01",
-    tag: "Straight · Back",
+    src: PHOTOS.look.feedin,
+    title: "Refill · No.01",
+    tag: "Maintained · Fresh",
     span: "col-span-6 md:col-span-5 aspect-[4/5]",
     parallax: -50,
+    gradient: 30,
   },
 ];
 
@@ -79,16 +87,29 @@ function Frame({ f, idx }: { f: Frame; idx: number }) {
     >
       <motion.div
         style={{ y, scale: 1.18 }}
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0"
         whileHover={{ scale: 1.24 }}
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] ease-out"
-          style={{
-            backgroundImage: `url(${f.src})`,
-            filter: "saturate(0.85) contrast(1.05)",
-          }}
-        />
+        {f.src ? (
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] ease-out"
+            style={{
+              backgroundImage: `url(${f.src})`,
+              filter: "saturate(0.85) contrast(1.05)",
+            }}
+          />
+        ) : (
+          // Luxe purple gradient placeholder — swap a value in /lib/photos.ts to use a photo.
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(${f.gradient}deg, #581c87 0%, #7c3aed 45%, #a78bfa 100%)`,
+            }}
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.25),transparent_55%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(76,29,149,0.45),transparent_60%)]" />
+          </div>
+        )}
       </motion.div>
 
       {/* Layers */}
@@ -150,7 +171,7 @@ export function Lookbook() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease, delay: 0.2 }}
-            href="https://instagram.com/hair.by.shannnn.x"
+            href="https://instagram.com/lashesby.l"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[11px] tracking-luxe uppercase text-gold/80 hover:text-gold transition-colors self-start md:self-auto"
@@ -161,7 +182,7 @@ export function Lookbook() {
 
         <div className="grid grid-cols-12 gap-3 sm:gap-5 auto-rows-[minmax(0,420px)]">
           {FRAMES.map((f, i) => (
-            <Frame key={f.src} f={f} idx={i} />
+            <Frame key={f.title} f={f} idx={i} />
           ))}
         </div>
       </div>

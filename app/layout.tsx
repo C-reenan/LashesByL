@@ -24,12 +24,12 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HAIR BY SHANNON — Birmingham Braid Atelier",
+  title: "LASHES BY L — Birmingham Lash Atelier",
   description:
-    "Private braiding atelier in Birmingham. Knotless, boho, feed-ins & bespoke protective styles by Shannon. Booking by appointment.",
+    "Private lash atelier in Birmingham. Classic, hybrid, volume, mega volume, lifts & tints by L. Booking by appointment.",
   openGraph: {
-    title: "HAIR BY SHANNON — Birmingham Braid Atelier",
-    description: "Private braiding atelier in Birmingham, AL.",
+    title: "LASHES BY L — Birmingham Lash Atelier",
+    description: "Private lash atelier in Birmingham, AL.",
     type: "website",
   },
 };

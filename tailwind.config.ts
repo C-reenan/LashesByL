@@ -8,23 +8,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Page surfaces — white-dominant, faint purple tint as it deepens
         ink: {
-          950: "#070406",
-          900: "#0b0709",
-          800: "#120c10",
-          700: "#1a1116",
+          950: "#ffffff",
+          900: "#faf7ff",
+          800: "#f3ecfb",
+          700: "#e9dff5",
         },
+        // "rose" → bold purples (kept the key so existing class names keep working)
         rose: {
-          champagne: "#d8b896",
-          dust:      "#c89b8a",
-          wine:      "#5a1f30",
-          burgundy:  "#3a121d",
-          blush:     "#e8c4b8",
+          champagne: "#a78bfa", // soft lavender
+          dust:      "#7c3aed", // bold royal purple
+          wine:      "#6d28d9",
+          burgundy:  "#581c87", // deep plum (used in big gradients)
+          blush:     "#2e1065", // primary text — dark purple on white
         },
+        // "gold" → bold purple accent (shimmer, dividers, captions)
         gold: {
-          DEFAULT: "#c9a16a",
-          soft:    "#e3c79a",
-          deep:    "#8a6a40",
+          DEFAULT: "#7c3aed",
+          soft:    "#a78bfa",
+          deep:    "#4c1d95",
         },
       },
       fontFamily: {
